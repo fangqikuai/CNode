@@ -1,8 +1,8 @@
-<div id="content">
-    <div class="top">
+<div id="top">
         <span class="goback iconfont" ng-click="goback()">&#xe60e;</span>
         详情
-    </div>
+</div>
+<div id="content" ng-show="!loading">
     <div class="panel">
         <div class="header topic_header">
             <span class="topic_full_title"><span class="put_top" ng-show="data.top">顶置</span>{{data.title}}</span>
@@ -71,12 +71,12 @@
             </div>
         </div>
     </div>
-    <div class="mask" ng-show="loading">
+</div>
+<div class="mask" ng-show="loading">
         <div class="spinner">
             <div class="dot1"></div>
             <div class="dot2"></div>
         </div>
-    </div>
 </div>
 <style>
 .mask {
@@ -102,7 +102,7 @@ a {
     padding-top: .42rem;
     padding-bottom: .48rem;
 }
-#content > .top{
+#top{
     width: 100%;
     height: .42rem;
     text-align: center;
@@ -115,7 +115,7 @@ a {
     left: 0;
     z-index: 99999;
 }
-#content > .top > .goback{
+#top > .goback{
     width: .42rem;
     height: .42rem;
     font-size: .24rem;

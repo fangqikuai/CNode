@@ -13,9 +13,9 @@
             <a href="##"><span>Administrator</span><span>c币</span></a>
         </div>
         <div class="flink">
-            <span>关注</span>
-            <span>粉丝</span>
-            <span>访客</span>
+            <div><span>关注</span></div>
+            <div><span>粉丝</span></div>
+            <div><span>访客</span></div>
         </div>
     </section>
     <section class="my-list list">
@@ -86,7 +86,7 @@
         height: 80%;
         vertical-align: middle;
         margin: 0 .2rem;
-        margin-top: 3%;
+        margin-top: 1.5%;
         border-radius: 50%;
         overflow: hidden;
     }
@@ -105,13 +105,19 @@
         background: #fff;
         border-bottom: 1px solid #d7d7d7;
     }
-    .content > .about-me > .flink > span{
-        display: block;
+    .content > .about-me > .flink > div{
         height: 100%;
         width: 33.3333%;
         float: left;
-        line-height: 4;
         text-align: center;
+    }
+    .content > .about-me > .flink > div > span{
+        display: block;
+        height: 100%;
+        -webkit-transform: translateY(20%);
+        -ms-transform: translateY(20%);
+        -o-transform: translateY(20%);
+        transform: translateY(20%);
     }
     .content > .my-list{
         height: 30%;
@@ -130,7 +136,6 @@
     .content > .list > div > span{
         display: inline-block;
         margin-left: .1rem;
-        margin-top: .02rem;
         transform: translateY(50%);
         -webkit-transform: translateY(50%);
     }
