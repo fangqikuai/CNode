@@ -10,7 +10,7 @@
         </ul>
     </nav>
 </header>
-<div ui-view></div>
+<div ui-view class="datalist-view"></div>
 
 
 <style>
@@ -55,5 +55,8 @@
 .headlines-top-nav > nav > ul > li.active > a {
     color: #29a1f7;
 }
-
+.datalist-view{
+    height: 100%;
+    overflow: auto;
+}
 </style>

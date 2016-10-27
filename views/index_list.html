@@ -1,11 +1,11 @@
 <section class="content">
-    <ul>
+    <ul refload>
         <li ng-repeat="data in data">
             <a href="#/details/{{data.id}}">
                 <h4 class="title">
                     <span ng-show="data.top" class="put_top">置顶</span>
                     <span ng-show="data.good" class="put_good">精华</span>
-                    <span ng-show="data.$first&&!data.top&&!data.good" class="topiclist-tab">{{data.tab | type}}</span>
+                    <span ng-show="!data.top&&!data.good" class="topiclist-tab">{{data.tab | type}}</span>
                     {{data.title}}
                 </h4>
                 <p class="from">来自：<img ng-src="{{data.author.avatar_url}}" alt="" />
@@ -31,8 +31,6 @@
 <style>
     .content{
         width: 100%;
-        padding-top: .72rem;
-        padding-bottom: .48rem;
     }
     .content > ul > li{
         width: 100%;

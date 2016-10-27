@@ -1,7 +1,8 @@
-
 .view{
     height: 100%;
+    padding-top: .72rem;
     padding-bottom: .48rem;
+    overflow: auto;
 }
 
 

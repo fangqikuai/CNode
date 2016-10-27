@@ -22,7 +22,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 }]);
 
 //首页列表控制器
-app.controller('indexListsCtrl', ['$scope', '$http', '$stateParams', '$sessionStorage', function($scope, $http, $stateParams, $sessionStorage) {
+app.controller('indexListsCtrl', ['$scope', '$http', '$stateParams', '$sessionStorage',function($scope, $http, $stateParams, $sessionStorage) {
     $scope.data = [];
     $scope.page = 1;
     $scope.limit = 10;
@@ -54,6 +54,14 @@ app.controller('indexListsCtrl', ['$scope', '$http', '$stateParams', '$sessionSt
         $scope.loading = true;
         more();
     }
+    $scope.onReload = function() {
+      console.warn('reload');
+      var deferred = $q.defer();
+      setTimeout(function() {
+        deferred.resolve(true);
+      }, 1000);
+      return deferred.promise;
+    };
 
 }]);
 //顶部导航控制器
@@ -79,6 +87,7 @@ app.controller('detailsCtrl', ['$scope', '$http', '$sce', '$state', 'histoty', '
     } else {
         $http.get('https://cnodejs.org/api/v1/topic/' + $state.params.id).success(function(data) {
             $scope.data = data.data;
+            console.log(data)
             var reg = new RegExp('src="//','ig');
             $scope.content = $scope.data.content.replace(reg,'src="http://');
             $scope.replies = $scope.data.replies;
@@ -123,6 +132,7 @@ app.directive('navfocus', ['$location', function($location) {
         }
     }
 }]);
+
 //时间差过滤器
 app.filter('timeDiff', function() {
     return function(input) {

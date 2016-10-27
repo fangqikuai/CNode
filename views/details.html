@@ -1,72 +1,74 @@
-<div id="top">
-        <span class="goback iconfont" ng-click="goback()">&#xe60e;</span>
-        详情
-</div>
-<div id="content" ng-show="!loading">
-    <div class="panel">
-        <div class="header topic_header">
-            <span class="topic_full_title"><span class="put_top" ng-show="data.top">顶置</span>{{data.title}}</span>
-            <div class="changes">
-                <span>发布于
-                {{data.create_at | timeDiff}}
-                </span>
-                <span>
-                作者
-                <i>{{data.author.loginname}}</i>
-                </span>
-                <span>
-                {{data.visit_count}}
-                次浏览
-                </span>
-                <span>
-                最后一次编辑是
-                {{data.last_reply_at | timeDiff}}
-                </span>
-                <span>
-                来自
-                {{data.tab | type}}
-                </span>
-            </div>
-        </div>
-        <div class="inner topic">
-            <div class="topic_content" ng-bind-html="content | sceurl"></div>
-        </div>
+<div class="datalist-content">
+    <div id="top">
+            <span class="goback iconfont" ng-click="goback()">&#xe60e;</span>
+            详情
     </div>
-    <div class="panel">
-        <div class="header">
-            <span class="col_fade">
-            {{data.reply_count}}
-            回复
-            </span>
+    <div id="content" ng-show="!loading">
+        <div class="panel">
+            <div class="header topic_header">
+                <span class="topic_full_title"><span class="put_top" ng-show="data.top">顶置</span>{{data.title}}</span>
+                <div class="changes">
+                    <span>发布于
+                    {{data.create_at | timeDiff}}
+                    </span>
+                    <span>
+                    作者
+                    <i>{{data.author.loginname}}</i>
+                    </span>
+                    <span>
+                    {{data.visit_count}}
+                    次浏览
+                    </span>
+                    <span>
+                    最后一次回复是
+                    {{data.last_reply_at | timeDiff}}
+                    </span>
+                    <span>
+                    来自
+                    {{data.tab | type}}
+                    </span>
+                </div>
+            </div>
+            <div class="inner topic">
+                <div class="topic_content" ng-bind-html="content | sceurl"></div>
+            </div>
         </div>
-        <div class='cell reply_area reply_item' id="reply1" reply_id="57ea26383670ca3f44c5beb7" reply_to_id="" ng-repeat="arr in replies">
-            <a class="anchor" id="57ea26383670ca3f44c5beb7"></a>
-            <div class='author_content'>
-                <a href="##" class="user_avatar">
-                    <img ng-src="{{arr.author.avatar_url}}" />
-                </a>
-                <div class='user_info'>
-                    <span>
-                        {{arr.author.loginname}}
-                    </span>
-                    <span>
-                        {{$index+1}}楼 •
-                        {{arr.create_at | timeDiff}}
-                    </span>
-                </div>
-                <div class='user_action'>
-                    <span>
-                    <i class="iconfont"></i>
-                        <span class="iconfont">&#xe601;</span>
-                        <span class="up-count">{{arr.ups.length}}</span>
-                    </span>
-                    <span></span>
-                </div>
+        <div class="panel">
+            <div class="header">
+                <span class="col_fade">
+                {{data.reply_count}}
+                回复
+                </span>
             </div>
-            <div class='reply_content from-{{arr.author.loginname}}' ng-bind-html="arr.content | sceurl">
-            </div>
-            <div class='clearfix'>
-                <div class='reply2_area'>
+            <div class='cell reply_area reply_item' id="reply1" reply_id="57ea26383670ca3f44c5beb7" reply_to_id="" ng-repeat="arr in replies">
+                <a class="anchor" id="57ea26383670ca3f44c5beb7"></a>
+                <div class='author_content'>
+                    <a href="##" class="user_avatar">
+                        <img ng-src="{{arr.author.avatar_url}}" />
+                    </a>
+                    <div class='user_info'>
+                        <span>
+                            {{arr.author.loginname}}
+                        </span>
+                        <span>
+                            {{$index+1}}楼 •
+                            {{arr.create_at | timeDiff}}
+                        </span>
+                    </div>
+                    <div class='user_action'>
+                        <span>
+                        <i class="iconfont"></i>
+                            <span class="iconfont">&#xe601;</span>
+                            <span class="up-count">{{arr.ups.length}}</span>
+                        </span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class='reply_content from-{{arr.author.loginname}}' ng-bind-html="arr.content | sceurl">
+                </div>
+                <div class='clearfix'>
+                    <div class='reply2_area'>
+                    </div>
                 </div>
             </div>
         </div>
@@ -80,9 +82,15 @@
 </div>
 <style>
 .mask {
-    top: 0;
+    top: .42rem;
 }
-
+.view{
+    padding-top: .42rem;
+}
+.datalist-content{
+    height: 100%;
+    overflow: auto;
+}
 blockquote {
     margin: 0;
     padding: 0;
@@ -97,10 +105,6 @@ a {
 }
 #content .topic_full_title{
     width: 100%;
-}
-#content{
-    padding-top: .42rem;
-    padding-bottom: .48rem;
 }
 #top{
     width: 100%;
